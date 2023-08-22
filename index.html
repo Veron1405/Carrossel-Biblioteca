@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro de Livros</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Cadastro de Livros</h1>
+  <div id="formularioLivro">
+    <label for="titulo">Título do Livro:</label>
+    <input type="text" id="titulo">
+    <label for="urlImagem">URL da Imagem:</label>
+    <input type="text" id="urlImagem">
+    <button onclick="adicionarLivro()">Adicionar Livro</button>
+    <button onclick="mostrarLivros()">Mostrar Livros Cadastrados</button>
+    <button onclick="apagarLivros()">Apagar Livros Cadastrados</button>
+  </div>
+  <div id="carrosselLivros" class="carousel"></div>
+  <p id="quantidadeLivros">Nenhum livro cadastrado.</p>
+  <div id="livrosCadastrados">
+</div>
+
+  <script>
+    const livros = [];
+
+    function adicionarLivro() {
+      const inputTitulo = document.getElementById('titulo');
+      const inputURLImagem = document.getElementById('urlImagem');
+
+      const titulo = inputTitulo.value;
+      const urlImagem = inputURLImagem.value;
+
+      if (titulo && urlImagem) {
+        livros.push({ titulo, urlImagem });
+        inputTitulo.value = '';
+        inputURLImagem.value = '';
+        atualizarQuantidadeLivros();
+      }
+    }
+
+    function mostrarLivros() {
+      const carrossel = document.getElementById('carrosselLivros');
+      carrossel.innerHTML = '';
+
+      for (const livro of livros) {
+        const img = document.createElement('img');
+        img.src = livro.urlImagem;
+        carrossel.appendChild(img);
+      }
+    }
+
+    function apagarLivros() {
+      livros.length = 0;
+      const carrossel = document.getElementById('carrosselLivros');
+      carrossel.innerHTML = '';
+      atualizarQuantidadeLivros();
+    }
+
+    function atualizarQuantidadeLivros() {
+      const quantidadeLivros = document.getElementById('quantidadeLivros');
+      quantidadeLivros.textContent = `${livros.length} livro(s) cadastrado(s).`;
+    }
+    
+    let imgIndice = 0;
+        const IMAGENS=['Image5.png','Image7.png..jpg','Image3.png','Image9.png'];
+        const prevButton = document.getElementById('anterior');
+        const nextButton = document.getElementById('proximo');
+
+        var IMG=document.getElementById('carrosselImagem');
+
+        function carregar(){
+        if (imgIndice < 0) {
+            imgIndice = IMAGENS.length - 1;
+        }  
+        else if (imgIndice >= IMAGENS.length)   {
+            imgIndice = 0;
+            }
+
+        IMG.src=IMAGENS[imgIndice];
+        }
+
+        prevButton.addEventListener('click', () => {
+            --imgIndice
+            carregar();
+        });
+
+        nextButton.addEventListener('click', () => {
+            ++imgIndice
+            carregar();
+        })
+        carregar();
+  </script>
+</body>
+</html>

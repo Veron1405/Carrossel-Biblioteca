@@ -1,0 +1,76 @@
+/* Reset de margens e preenchimento para o body */
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilo para o cabeçalho */
+  h1 {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Estilo para o formulário de cadastro de livros */
+  #formularioLivro {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilo para os rótulos do formulário */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* Estilo para os campos de entrada de texto */
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  /* Estilo para os botões */
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  
+  /* Estilo para o carrossel de imagens */
+  .carousel {
+    max-width: 300px;
+    margin: 20px auto;
+    overflow: hidden;
+  }
+  
+  .carousel img {
+    width: 100%;
+    transition: transform 0.5s;
+  }
+  
+  /* Estilo para a mensagem de quantidade de livros cadastrados */
+  #quantidadeLivros {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
